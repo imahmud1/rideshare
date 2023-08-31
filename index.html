@@ -5,33 +5,38 @@
   <title>Ride Sharing in Oita Beppu</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
   <link rel="stylesheet" href="style.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1, scroll-to-top">
 </head>
 <body>
   <header>
     <h1>Ride Sharing in Oita Beppu</h1>
   </header>
   <main>
-    <div id="map"></div>
-    <div id="popup" class="hidden">
-      <form id="rideForm">
-        <div class="input-block">
-          <label for="phoneNumber">Phone Number:</label>
-          <input type="text" id="phoneNumber">
-        </div>
-        <div class="input-block">
-          <label for="startLocation">Start Location:</label>
-          <input type="text" id="startLocation">
-        </div>
-        <div class="input-block">
-          <label for="endLocation">End Location:</label>
-          <input type="text" id="endLocation">
-        </div>
-        <div class="button-block">
-          <button type="submit" class="submit-button">Request Ride</button>
-        </div>
-      </form>
+    <div id="map">
+      <button id="scrollToFormBtn" class="floating-button">+</button>
+      <div class="price-box" id="mapLegend">
+        <div id="price200">500 Yen</div>
+        <div id="price500">1000 Yen</div>
+        <div id="price1000">2000 Yen</div>
+      </div>
     </div>
+    <form id="rideForm">
+      <div class="input-block">
+        <label for="phoneNumber">Phone Number:</label>
+        <input type="text" id="phoneNumber">
+      </div>
+      <div class="input-block">
+        <label for="startLocation">Start Location:</label>
+        <input type="text" id="startLocation">
+      </div>
+      <div class="input-block">
+        <label for="endLocation">End Location:</label>
+        <input type="text" id="endLocation">
+      </div>
+      <div class="button-block">
+        <button type="submit" class="submit-button">Request Ride</button>
+      </div>
+    </form>
   </main>
   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
   <script src="script.js"></script>
