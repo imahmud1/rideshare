@@ -50,12 +50,29 @@ document.addEventListener("DOMContentLoaded", function() {
   // Form submission
   document.getElementById('rideForm').addEventListener('submit', function(event) {
     event.preventDefault();
-
+  
     const phoneNumber = document.getElementById('phoneNumber').value;
     const startLocation = document.getElementById('startLocation').value;
     const endLocation = document.getElementById('endLocation').value;
-
-    alert(`Details submitted. Phone: ${phoneNumber}, Start: ${startLocation}, End: ${endLocation}`);
+  
+    const data = {
+      'Phone Number': phoneNumber,
+      'Start Location': startLocation,
+      'End Location': endLocation
+    };
+  
+    // Replace `GOOGLE_APPS_SCRIPT_URL` with the URL of your Google Apps Script function
+    fetch('GOOGLE_APPS_SCRIPT_URL', {
+      method: 'POST',
+      body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log('Success:', data);
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
   });
 
   // Stop click event propagation for scroll button

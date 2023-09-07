@@ -4,19 +4,28 @@
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: column;
   }
 
   header {
     background-color: #35424A;
     color: white;
-    text-align: center;
-    padding: 1em 0;
+    padding: .7em 0;
+  }
+
+  .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px; /* Adds some padding to the sides of the header content */
+      flex-wrap: wrap; /* Allows items to wrap if they can't fit on one line */
   }
 
   h1 {
-    margin: 0;
+    margin: 0 20px 0 0;
     font-size: 1.8em;
-  }
+}
 
   main {
     padding: 1em;
@@ -127,13 +136,50 @@
   #price1000 {
     background-color: rgba(255, 0, 0, 0.7);
   }
+/* Header Materials */
+  .social-icons {
+    display: flex;
+    gap: 30px;
+  }
+
+  .social-icons a {
+      color: white; /* Icon color */
+      font-size: 24px; /* Icon size */
+      transition: 0.3s;
+  }
+
+  .social-icons a:hover {
+      color: #E8491D; /* Change color on hover, use any color you prefer */
+  }
+
+  .reload-link {
+    text-decoration: none;
+    color: inherit;  /* Makes the color the same as the parent */
+  }
+
+  .reload-link:hover {
+      text-decoration: none;  /* Removes any underline on hover */
+  }
   
+
   /* Media Query */
   @media (max-width: 768px) {
+    header {
+      order: 3;  /* Moves the entire header to the bottom */
+    }
+    
+    #map {
+      order: 1;  /* Makes it the first item */
+    }
+
+    #rideForm {
+      order: 2;  /* Makes it the second item */
+    }
+    
     header h1 {
       font-size: 1.5em;
     }
-  
+    
     main {
       padding: 1em;
     }
